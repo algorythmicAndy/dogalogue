@@ -4,4 +4,10 @@ export default defineConfig({
   test: {
     setupFiles: ["./vitest.setup.ts"],
   },
+  plugins: [React()],
+  server: {
+    watch: {
+      usePolling: true,
+    },
+  },
 });
