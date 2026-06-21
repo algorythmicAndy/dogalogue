@@ -20,8 +20,8 @@ async function fetchDogs(subCat: string = "breeds") {
   const res = await fetch(`${base}/${subCat}`)
 
   if (!res.ok) throw new Error("Bad response")
-const json = await res.json()
-return json.data
+  const json = await res.json()
+  return json.data
 }
 
 function cacheDogs(data: IDogBreeds[]) {
@@ -36,7 +36,7 @@ export async function getDogs(subCat: string = "breeds") {
   }
 
   try {
-    const data = await fetchDogs("breeds")
+    const data = await fetchDogs(subCat)
     cacheDogs(data)
 
     return { data: data, error: null };
